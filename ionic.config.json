@@ -1,0 +1,7 @@
+{
+  "name": "dnd-character-creator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
