@@ -35,3 +35,57 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Custom styles for the DND Character Creator app */
+body.fondo-web ion-content {
+  --background: url('/assets/img/dnd-background.jpg') no-repeat center center / cover;
+}
+body.fondo-app ion-content {
+  --background: url('/assets/img/dnd-background-app.jpg') no-repeat center center / cover;
+}
+ion-header ion-toolbar {
+  --background: transparent;
+  color: white;
+  text-align: center;
+}
+.contenedor-web {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #f9f4e8;
+  border: 2px solid #5c4033;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #3b2f2f;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+}
+ion-input {
+  --background: transparent;
+  --color: #3b2f2f;
+  --placeholder-color: #7a5e4c;
+  --border-color: #5c4033;
+}
+ion-checkbox {
+  --border-color: #5c4033;
+  --background: #f9f4e8;
+  --checkmark-color: #5c4033;
+  --border-radius: 4px;
+}
+ion-item {
+  --highlight-color-focused: #5c4033;
+  --highlight-color-invalid: red;
+  --color: #3b2f2f;
+  --background: transparent;
+}
+

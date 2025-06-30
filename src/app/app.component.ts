@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+
+  ngOnInit() {
+    const esWeb = !Capacitor.isNativePlatform();
+      if (esWeb) {
+        document.body.classList.add('fondo-web');
+      }else{
+        document.body.classList.add('fondo-app');
+      }
+  }
+
+
 }

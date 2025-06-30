@@ -1,0 +1,15 @@
+<form [formGroup]="classForm" (ngSubmit)="send()">
+
+  <ion-item>
+    <ion-select label="Race" labelPlacement="floating" type="text" formControlName="race">
+      <!-- @for (race of races.results; track race) {
+      <ion-select-option [value]="race.index">{{ race.name }}</ion-select-option>
+      } -->
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" type="submit" [disabled]="!classForm.valid">Finish Class</ion-button>
+</form>
+<ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+        Back
+</ion-button>

@@ -1,0 +1,16 @@
+<ion-content>
+  <ion-header class="ion-no-border ion-padding">
+    <ion-toolbar>
+      <ion-title>DND Character Creator</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card class="margin-top contenedor-web">
+      <app-login-form [usernameOrEmail]="usernameOrEmail" [password]="password" [rememberMe]="rememberMe" (complete)="onLoginComplete($event)"></app-login-form>
+
+  <ion-item lines="none">
+      <ion-label class="ion-text-center">
+        Don't have an account? <a routerLink="/register">Register</a>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

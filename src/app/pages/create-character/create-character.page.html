@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar class="ion-no-border ion-padding">
+      <ion-title>Create Character</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <ion-card class="margin-top contenedor-web">
+      <app-initial-setting [alignments]="alignments" [races]="races" [classes]="classes" [backgrounds]="backgrounds" (complete)="onComplete()" [hidden]="complete"></app-initial-setting>
+      <app-class-options [hidden]="!complete" (back)="goBack()" (classComplete)="onClassComplete()"></app-class-options>
+
+    </ion-card>
+</ion-content>

@@ -1,0 +1,41 @@
+<form [formGroup]="characterForm" (ngSubmit)="enviar()">
+  <ion-item>
+    <ion-input label="Character Name" labelPlacement="floating" type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Class" labelPlacement="floating" type="text" formControlName="class">
+      @for (class of classes.results; track $index) {
+        <ion-select-option [value]="class.index">{{ class.name }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Background" labelPlacement="floating" type="text" formControlName="background">
+      @for (background of backgrounds.results; track $index) {
+        <ion-select-option [value]="background.index">{{ background.name }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Alignment" labelPlacement="floating" type="text" formControlName="alignment">
+      @for (alignment of alignments.results; track alignment) {
+      <ion-select-option [value]="alignment.index">{{ alignment.name }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Level" labelPlacement="floating" type="number" formControlName="level"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Race" labelPlacement="floating" type="text" formControlName="race">
+      @for (race of races.results; track race) {
+      <ion-select-option [value]="race.index">{{ race.name }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" type="submit" [disabled]="!characterForm.valid">Create Character</ion-button>
+</form>
+<ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+        Back
+</ion-button>
