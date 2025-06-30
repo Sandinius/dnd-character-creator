@@ -10,6 +10,7 @@ import { CreateCharacterPage } from './create-character.page';
 import { InitialSettingComponent } from './initial-setting/initial-setting.component';
 import { ClassOptionsComponent } from './class-options/class-options.component';
 import { StatsCreationComponent } from './stats-creation/stats-creation.component';
+import { ProficienciesSelectionComponent } from './proficiencies-selection/proficiencies-selection.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { StatsCreationComponent } from './stats-creation/stats-creation.componen
     CreateCharacterPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [CreateCharacterPage,InitialSettingComponent,ClassOptionsComponent,StatsCreationComponent],
-  exports: [InitialSettingComponent, ClassOptionsComponent, StatsCreationComponent]
+  declarations: [CreateCharacterPage,InitialSettingComponent,ClassOptionsComponent,StatsCreationComponent,ProficienciesSelectionComponent],
+  exports: [InitialSettingComponent, ClassOptionsComponent, StatsCreationComponent, ProficienciesSelectionComponent]
 })
 export class CreateCharacterPageModule {}

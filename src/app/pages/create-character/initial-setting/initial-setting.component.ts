@@ -15,7 +15,7 @@ export class InitialSettingComponent  implements OnInit {
 @Input() races!: Results;
 @Input() classes!: Results;
 @Input() backgrounds!: Results;
-@Output() complete = new EventEmitter<boolean>();
+@Output() complete = new EventEmitter<void>();
  characterForm: FormGroup
 
   constructor(
@@ -37,9 +37,7 @@ export class InitialSettingComponent  implements OnInit {
 
   enviar() {
     sessionStorage.setItem('character', JSON.stringify(this.characterForm.value));
-    console.log('Character saved to sessionStorage');
-    console.log(this.characterForm.value);
-    this.complete.emit(true);
+    this.complete.emit();
   }
   onClick() {
     this.location.back();

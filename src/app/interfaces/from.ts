@@ -1,6 +1,6 @@
-import { Option2 } from "./option2"
+import { Option } from "./options"
 
 export interface From {
   option_set_type: string
-  options: Option2[]
+  options: Option[]
 }

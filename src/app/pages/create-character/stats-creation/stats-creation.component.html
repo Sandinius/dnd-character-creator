@@ -1,3 +1,46 @@
-<p>
-  stats-creation works!
-</p>
+<form [formGroup]="statsForm" (ngSubmit)="send()">
+
+<ion-item>
+    <ion-input label="Strength" labelPlacement="floating" type="number" formControlName="strength" [readonly]="blockedStrength"></ion-input>
+    <ion-button (click)="randomizeStat('strength')" expand="block" fill="clear" shape="round" [disabled]="blockedStrength">
+        Randomize
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Dexterity" labelPlacement="floating" type="number" formControlName="dexterity" [readonly]="blockedDexterity"></ion-input>
+    <ion-button (click)="randomizeStat('dexterity')" expand="block" fill="clear" shape="round" [disabled]="blockedDexterity">
+        Randomize
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Constitution" labelPlacement="floating" type="number" formControlName="constitution" [readonly]="blockedConstitution"></ion-input>
+    <ion-button (click)="randomizeStat('constitution')" expand="block" fill="clear" shape="round" [disabled]="blockedConstitution">
+        Randomize
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Intelligence" labelPlacement="floating" type="number" formControlName="intelligence" [readonly]="blockedIntelligence"></ion-input>
+    <ion-button (click)="randomizeStat('intelligence')" expand="block" fill="clear" shape="round" [disabled]="blockedIntelligence">
+        Randomize
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Wisdom" labelPlacement="floating" type="number" formControlName="wisdom" [readonly]="blockedWisdom"></ion-input>
+    <ion-button (click)="randomizeStat('wisdom')" expand="block" fill="clear" shape="round" [disabled]="blockedWisdom">
+        Randomize
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Charisma" labelPlacement="floating" type="number" formControlName="charisma" [readonly]="blockedCharisma"></ion-input>
+    <ion-button (click)="randomizeStat('charisma')" expand="block" fill="clear" shape="round" [disabled]="blockedCharisma">
+        Randomize
+    </ion-button>
+  </ion-item>
+
+  <ion-button expand="full" type="submit" [disabled]="!statsForm.valid">Finish Class</ion-button>
+</form>
+
+<ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+        Back to initial
+</ion-button>
+

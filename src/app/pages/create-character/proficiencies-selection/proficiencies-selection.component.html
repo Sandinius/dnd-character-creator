@@ -1,0 +1,19 @@
+
+
+  <form [formGroup]="proficienciesForm" (ngSubmit)="submit()">
+      @for (prof of availableProficiencies; track prof) {
+
+      <ion-item>
+        <ion-input label="{{prof.name}}" readonly type="number" value="{{prof.value}}"readonly></ion-input>
+        <ion-checkbox
+          slot="start"
+          [value]="prof.name"
+          (ionChange)="onCheckboxChange($event)"
+          [disabled]="prof.blocked">
+        </ion-checkbox>
+      </ion-item>
+      }
+    <ion-button expand="block" type="submit">
+      Submit
+    </ion-button>
+  </form>

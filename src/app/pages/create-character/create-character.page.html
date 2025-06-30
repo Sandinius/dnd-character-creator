@@ -5,8 +5,31 @@
     </ion-toolbar>
   </ion-header>
     <ion-card class="margin-top contenedor-web">
-      <app-initial-setting [alignments]="alignments" [races]="races" [classes]="classes" [backgrounds]="backgrounds" (complete)="onComplete()" [hidden]="complete"></app-initial-setting>
-      <app-class-options [hidden]="!complete" (back)="goBack()" (classComplete)="onClassComplete()"></app-class-options>
+
+      <app-initial-setting *ngIf="!complete"
+                     [alignments]="alignments"
+                     [races]="races"
+                     [classes]="classes"
+                     [backgrounds]="backgrounds"
+                     (complete)="onComplete()">
+      </app-initial-setting>
+
+      <app-stats-creation *ngIf="complete && !completeStats"
+                          [races]="racesComplete"
+                          (back)="goBack($event)"
+                          (statsComplete)="onStatsComplete()">
+      </app-stats-creation>
+
+      <app-proficiencies-selection *ngIf="completeStats && !completeProficiencies"
+                                   (back)="goBack($event)"
+                                   [classes]="class"
+                                   (proficienciesComplete)="onProficienciesComplete()">
+      </app-proficiencies-selection>
+
+      <app-class-options *ngIf="completeProficiencies && !completeClass"
+                         (back)="goBack($event)"
+                         (classComplete)="onClassComplete()">
+      </app-class-options>
 
     </ion-card>
 </ion-content>

@@ -11,9 +11,9 @@ import { CharacterData } from 'src/app/interfaces/character-data';
 })
 export class ClassOptionsComponent  implements OnInit {
 
- @Output() back = new EventEmitter<void>();
-  @Output() classComplete = new EventEmitter<string>();
-   classForm: FormGroup
+  @Output() back = new EventEmitter<string>();
+  @Output() classComplete = new EventEmitter<void>();
+  classForm: FormGroup
 
   constructor(
     private location: Location,
@@ -42,7 +42,7 @@ export class ClassOptionsComponent  implements OnInit {
   }
 
   onClick() {
-    this.back.emit();
+    this.back.emit('backClass');
   }
 
 }

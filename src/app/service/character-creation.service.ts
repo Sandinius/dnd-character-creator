@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Results } from '../interfaces/results';
 import { Classes } from '../interfaces/classes';
+import { Level } from '../interfaces/level';
+import { RacesComplete } from '../interfaces/races';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +34,11 @@ export class CharacterCreationService {
 
   getClassById(id: string) {
     return this.http.get<Classes>(`${this.apiUrl}classes/${id}`);
+  }
+  getClassLevelById(id: string, level: number) {
+    return this.http.get<Level>(`${this.apiUrl}classes/${id}/levels/${level}`);
+  }
+  getRacesById(id: string) {
+    return this.http.get<RacesComplete>(`${this.apiUrl}races/${id}`);
   }
 }
