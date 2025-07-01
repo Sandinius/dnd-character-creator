@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { BackgroundsFull } from 'src/app/interfaces/backgrounds';
 import { CharacterData } from 'src/app/interfaces/character-data';
 import { Classes } from 'src/app/interfaces/classes';
 import { Level } from 'src/app/interfaces/level';
 import { RacesComplete } from 'src/app/interfaces/races';
 import { Results } from 'src/app/interfaces/results';
 import { CharacterCreationService } from 'src/app/service/character-creation.service';
-
+import { LanguageOptions } from 'src/app/interfaces/language-options';
+import { Feature } from 'src/app/interfaces/feature';
 @Component({
   selector: 'app-create-character',
   templateUrl: './create-character.page.html',
@@ -70,6 +72,15 @@ export class CreateCharacterPage implements OnInit {
     languages: [],
     traits: []
   };
+  public backgrpundComplete: BackgroundsFull = {
+     index: '',
+      name: '',
+      starting_proficiencies: [],
+      language_options: {choose: 0,type:''},
+      starting_equipment: [],
+      starting_equipment_options: [],
+      feature: {index:'', name:'',url:''}
+  }
   constructor(
     private characterCreationService: CharacterCreationService
   ) {
@@ -108,8 +119,10 @@ export class CreateCharacterPage implements OnInit {
       }).add(() => {
         this.characterCreationService.getRacesById(characterData.race).subscribe(raceData => {
           this.racesComplete = raceData;
-          const  bonus = this.racesComplete.ability_bonuses.filter(bonus => bonus.ability_score.index === 'str');
-    console.log('Bonus:', bonus);
+        }).add(()=>{
+            this.characterCreationService.getBackgoundsById(characterData.background).subscribe(backgroundData => {
+            this.backgrpundComplete = backgroundData;
+          });
         });
       });
     });

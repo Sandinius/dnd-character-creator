@@ -23,6 +23,9 @@
       <app-proficiencies-selection *ngIf="completeStats && !completeProficiencies"
                                    (back)="goBack($event)"
                                    [classes]="class"
+                                   [levels]="classLevel"
+                                   [background]="backgrpundComplete"
+                                   [races]="racesComplete"
                                    (proficienciesComplete)="onProficienciesComplete()">
       </app-proficiencies-selection>
 

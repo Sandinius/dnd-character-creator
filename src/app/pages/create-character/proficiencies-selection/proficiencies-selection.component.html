@@ -1,13 +1,12 @@
-
-
-  <form [formGroup]="proficienciesForm" (ngSubmit)="submit()">
-      @for (prof of availableProficiencies; track prof) {
-
+<ion-label *ngIf="this.maxChose">Chosse {{this.maxChose}} from de availiable skills</ion-label>
+<ion-label *ngIf="!this.maxChose">You have chosen the maximun allowed skills for your class</ion-label>
+<form [formGroup]="proficienciesForm" (ngSubmit)="submit()">
+    @for (prof of availableProficiencies; track prof) {
       <ion-item>
-        <ion-input label="{{prof.name}}" readonly type="number" value="{{prof.value}}"readonly></ion-input>
+        <ion-input label="{{prof.name}}" readonly type="number" value="{{prof.value}}" readonly></ion-input>
         <ion-checkbox
           slot="start"
-          [value]="prof.name"
+          [value]="prof.id"
           (ionChange)="onCheckboxChange($event)"
           [disabled]="prof.blocked">
         </ion-checkbox>

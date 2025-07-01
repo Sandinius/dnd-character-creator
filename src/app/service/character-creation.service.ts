@@ -5,6 +5,7 @@ import { Results } from '../interfaces/results';
 import { Classes } from '../interfaces/classes';
 import { Level } from '../interfaces/level';
 import { RacesComplete } from '../interfaces/races';
+import { BackgroundsFull } from '../interfaces/backgrounds';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,8 @@ export class CharacterCreationService {
   }
   getRacesById(id: string) {
     return this.http.get<RacesComplete>(`${this.apiUrl}races/${id}`);
+  }
+  getBackgoundsById(id: string) {
+    return this.http.get<BackgroundsFull>(`${this.apiUrl}backgrounds/${id}`);
   }
 }

@@ -110,13 +110,13 @@ export class StatsCreationComponent  implements OnInit {
         if(charismaBonus.length > 0){
           const abilitybonus = charismaBonus[0].bonus;
           this.statsForm.get('charisma')?.setValue(rollStat() + abilitybonus);
+
         }else{
           this.statsForm.get('charisma')?.setValue(rollStat());
         }
         this.blockedCharisma = true;
         break;
     }
-    console.log(this.statsForm.valid);
   }
 
 
